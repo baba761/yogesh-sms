@@ -16,9 +16,10 @@ const start = async () => {
     }
 };
 
-app.all("/", (req, res) => {
-    res.send("<h1> It is working </h1>");
+app.get("/", async (req, res) => {
+    res.sendFile(__dirname + "/index.html");
 });
+
 app.all("*", async () => {
     throw new Error("Not found");
 });
